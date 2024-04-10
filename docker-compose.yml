@@ -152,8 +152,8 @@ networks:
 
 
 volumes:
-   ecc_provider_data: {}
-   uc_provider_data: {}
-   be_dataapp_provider_data:
+    ecc_provider_data: {}
+    uc_provider_data: {}
+    be_dataapp_provider_data:
      external: true
-   clarus_models : {}
+   
