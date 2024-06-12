@@ -102,7 +102,7 @@ services:
 
   be-dataapp-provider:
     #image: rdlabengpa/ids_be_data_app:v0.3.2
-    image: clarusproject/clarus_data_stfp_app:0.0.1
+    image: clarusproject/clarus_data_stfp_app:0.0.2
     #image: clarus_webserver_data_app:0.1.0
     deploy:
       resources:
@@ -117,6 +117,7 @@ services:
     container_name: be-dataapp-provider
     ports:
       - "8183:8183"
+      - "2223:2223"
     expose:
       - "9000"
     environment:
@@ -141,7 +142,8 @@ services:
       - MINIO_PASSWORD=${MINIO_PASSWORD} 
     volumes:
       - ./be-dataapp_resources:/config
-      - be_dataapp_provider_data:/home/nobody/data/
+      #- be_dataapp_provider_data:/home/nobody/data/
+      - ./be-dataapp_data_provider:/home/nobody/data/datalake
       - ./ecc_cert:/cert
      
 
@@ -154,6 +156,6 @@ networks:
 volumes:
     ecc_provider_data: {}
     uc_provider_data: {}
-    be_dataapp_provider_data:
-     external: true
+    #be_dataapp_provider_data:
+     #external: true
    
